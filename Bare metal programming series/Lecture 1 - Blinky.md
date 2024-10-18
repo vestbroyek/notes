@@ -16,6 +16,10 @@ make
 cd ..
 ```
 We’re writing a simple LED blinking program. The first step is to configure the clock. 
-```firmware.c
+```c
+static void rcc_setup(void) {
+
+  
+}
 
 ```
