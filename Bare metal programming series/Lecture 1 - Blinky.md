@@ -56,6 +56,18 @@ static void gpio_setup(void) {
   gpio_mode_setup(LED_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, LED_PIN_1 | LED_PIN_2);
 
 }
+```
 
+Next, let’s write our delay function. We can’t just put in a blank loop so we put in an Assembly no-op instruction.
+```c
+static void delay_cycles(uint32_t cycles) {
+
+for (uint32_t i = 0; i < cycles; i++) {
+
+__asm__("nop");
+
+}
+
+}
 ```
 
