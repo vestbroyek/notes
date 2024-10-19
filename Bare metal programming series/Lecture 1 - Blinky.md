@@ -1,6 +1,7 @@
 ## Setup
 Just ran these, also got the GCC ARM toolchain and added to path like
 `PATH=$PATH:/Applications/ArmGNUToolchain/13.3.rel1/arm-none-eabi/bin`
+
 ```bash
 # Clone the repo
 git clone git@github.com:lowbyteproductions/bare-metal-series.git
