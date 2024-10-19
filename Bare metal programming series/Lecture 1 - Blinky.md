@@ -24,3 +24,16 @@ static void rcc_setup(void) {
 rcc_clock_setup_pll(&rcc_hsi_configs[RCC_CLOCK_3V3_84MHZ]);
 }
 ```
+Now we can setup our GPIO for our LED. We’ll enable the pin at Port A, pin 5. We’ll use `gpio_mode_setup()` from `stm32/gpio.h` and pass in 
+- the port
+- mode (output)
+- pull up/down (which is like a default value if we don’t set it to high or low)
+- the pin(s), with | notation
+
+-> Need to check which port and pin.
+
+```c
+static void gpio_setup(void) {
+gpio_mode_setup(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO5 | GPIO6);
+}
+```
