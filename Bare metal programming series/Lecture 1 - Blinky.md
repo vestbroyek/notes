@@ -64,9 +64,32 @@ static void delay_cycles(uint32_t cycles) {
 
 for (uint32_t i = 0; i < cycles; i++) {
 
-__asm__("nop");
+  __asm__("nop");
 
 }
+}
+```
+
+So our main function and loop will look like this. We’ll pause for roughly a second (the clock speed is 84 MHz, each loop does 4 instructions), so 84 million / 4 will be roughly a second.
+```c
+int main(void) {
+
+  rcc_setup();
+  gpio_setup();
+
+  while (1) {
+  
+    delay_cycles(84000000 / 4);
+    
+    gpio_toggle(LED_PORT, LED_PIN_1);
+    
+    delay_cycles(84000000 / 4);
+    
+    gpio_toggle(LED_PORT, LED_PIN_2);
+  
+  }
+
+return 0;
 
 }
 ```
