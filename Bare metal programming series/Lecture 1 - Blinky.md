@@ -32,8 +32,14 @@ Now we can setup our GPIO for our LED. We’ll enable the pin at Port A, pin 5. 
 
 -> Need to check which port and pin.
 
+Additionally, because all peripherals are disabled by default, we need to enable the clock for port A. 
+
 ```c
 static void gpio_setup(void) {
+  rcc_periph_clock_enable(RCC_GPIOA);
 gpio_mode_setup(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO5 | GPIO6);
 }
 ```
+
+Now we can call our setup functions and then toggle the LED in the loop. There’s a `gpio_toggle()` function. Additionally, we can just name our ports and pins more clearly using `#define`. 
+
