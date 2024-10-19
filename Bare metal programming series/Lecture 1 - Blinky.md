@@ -80,11 +80,8 @@ int main(void) {
   while (1) {
   
     delay_cycles(84000000 / 4);
-    
     gpio_toggle(LED_PORT, LED_PIN_1);
-    
     delay_cycles(84000000 / 4);
-    
     gpio_toggle(LED_PORT, LED_PIN_2);
   
   }
@@ -93,4 +90,6 @@ return 0;
 
 }
 ```
+We can now run `cd app && make`. We get an .o (object) file, a .bin file (the code to be loaded onto the chip) and an .elf file. 
 
+Also, we have a .map file, which tells you what ended up in your program after compilation, which can be useful for debugging. 
