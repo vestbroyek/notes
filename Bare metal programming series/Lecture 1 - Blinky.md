@@ -37,9 +37,25 @@ Additionally, because all peripherals are disabled by default, we need to enable
 ```c
 static void gpio_setup(void) {
   rcc_periph_clock_enable(RCC_GPIOA);
-gpio_mode_setup(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO5 | GPIO6);
+  
+  gpio_mode_setup(GPIOA, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, GPIO5 | GPIO6);
 }
 ```
 
-Now we can call our setup functions and then toggle the LED in the loop. There’s a `gpio_toggle()` function. Additionally, we can just name our ports and pins more clearly using `#define`. 
+Now we can call our setup functions and then toggle the LED in the loop. There’s a `gpio_toggle()` function that we’ll use. We also need to build in a small delay so we can see it toggling. 
+Additionally, we can just name our ports and pins more clearly using `#define`. 
+
+```c
+#define LED_PORT (GPIOA)
+#define LED_PIN_1 (GPIO5)
+#define LED_PIN_2 (GPIO6)
+
+// now we get
+static void gpio_setup(void) {
+  rcc_periph_clock_enable(RCC_GPIOA);
+  gpio_mode_setup(LED_PORT, GPIO_MODE_OUTPUT, GPIO_PUPD_NONE, LED_PIN_1 | LED_PIN_2);
+
+}
+
+```
 
