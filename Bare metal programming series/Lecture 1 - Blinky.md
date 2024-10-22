@@ -93,3 +93,32 @@ return 0;
 We can now run `cd app && make`. We get an .o (object) file, a .bin file (the code to be loaded onto the chip) and an .elf file. 
 
 Also, we have a .map file, which tells you what ended up in your program after compilation, which can be useful for debugging. 
+
+Also added platformio.ini in the root of `bare-metal-series`:
+```
+[env:genericSTM32F407VET6]
+
+platform = ststm32
+
+board = genericSTM32F407VET6
+
+framework = libopencm3
+
+debug_tool = stlink
+
+  
+
+upload_protocol = stlink
+
+upload_port = /dev/cu.wlan-debug
+
+  
+
+monitor_port = /dev/cu.wlan-debug
+
+  
+
+[platformio]
+
+src_dir = /Users/maurits/training/courses/youtube/bare-metal-series/app/src
+```
