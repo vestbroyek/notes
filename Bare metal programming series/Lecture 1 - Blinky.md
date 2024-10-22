@@ -99,26 +99,14 @@ Also added platformio.ini in the root of `bare-metal-series`:
 [env:genericSTM32F407VET6]
 
 platform = ststm32
-
 board = genericSTM32F407VET6
-
 framework = libopencm3
-
 debug_tool = stlink
 
-  
-
 upload_protocol = stlink
-
 upload_port = /dev/cu.wlan-debug
-
-  
-
 monitor_port = /dev/cu.wlan-debug
 
-  
-
 [platformio]
-
 src_dir = /Users/maurits/training/courses/youtube/bare-metal-series/app/src
 ```
