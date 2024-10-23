@@ -20,6 +20,10 @@ void gpio_mode_setup(uint32_t gpioport, uint8_t mode, uint8_t pull_up_down, uint
   
   moder = GPIO_MODER(gpioport);
 
+  // ... 
+
+}
+
 // leads to
 #define GPIO_MODER(port) MMIO32((port) + 0x00)
 #define GPIOA_MODER GPIO_MODER(GPIOA)
