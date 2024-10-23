@@ -34,4 +34,7 @@ void gpio_mode_setup(uint32_t gpioport, uint8_t mode, uint8_t pull_up_down, uint
 // leads to
 #define GPIO_PORT_A_BASE (PERIPH_BASE_AHB1 + 0x0000)
 
+// leads to
+#define PERIPH_BASE_AHB1 (PERIPH_BASE + 0x20000)
+#define PERIPH_BASE (0x40000000U)
 ```
