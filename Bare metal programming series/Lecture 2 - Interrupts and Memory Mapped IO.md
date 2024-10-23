@@ -38,3 +38,5 @@ void gpio_mode_setup(uint32_t gpioport, uint8_t mode, uint8_t pull_up_down, uint
 #define PERIPH_BASE_AHB1 (PERIPH_BASE + 0x20000)
 #define PERIPH_BASE (0x40000000U)
 ```
+
+Notice that MMIO32 just casts whatever address you pass it to a 32-bit integer. So we can 
