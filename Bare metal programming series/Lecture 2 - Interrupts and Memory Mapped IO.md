@@ -39,4 +39,6 @@ void gpio_mode_setup(uint32_t gpioport, uint8_t mode, uint8_t pull_up_down, uint
 #define PERIPH_BASE (0x40000000U)
 ```
 
-Notice that MMIO32 just casts whatever address you pass it to a 32-bit integer. So we can 
+Notice that MMIO32 just casts whatever address you pass it to a 32-bit integer. 
+
+`libopencm3` does all of this work for us (not just when it comes to GPIO).
