@@ -42,3 +42,13 @@ void gpio_mode_setup(uint32_t gpioport, uint8_t mode, uint8_t pull_up_down, uint
 Notice that MMIO32 just casts whatever address you pass it to a 32-bit integer. 
 
 `libopencm3` does all of this work for us (not just when it comes to GPIO).
+
+## Improving our script and interrupts
+Instead of doing useless loops, we can keep track of time using the “sys tick”. 
+
+To do so, we’ll set the frequency. We know the clock runs at 84 MHz, so 84 million cycles per second. For us, milliseconds is fine-grained enough. We pass in a sys tick frequency and the existing CPU frequency. Then we need to enable the counter. Finally, we need to work out how the sys tick will let us know what it is doing. It will do this using an **interrupt**. 
+
+> An interrupt is a mechanism that will temporarily halt the main program’s execution to service an event (like a button press or sensor signal).
+
+
+
